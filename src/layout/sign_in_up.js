@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './assets/styles/global.css';
+import '../assets/styles/global.css';
 
 class SignInUpLayout extends Component{
   render() {
