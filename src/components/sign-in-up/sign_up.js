@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SignInUpLayout from '../../layout/sign_in_up';
+import { Link } from 'react-router-dom';
 
 class SignUp extends Component {
   render() {
@@ -64,7 +65,9 @@ class SignUp extends Component {
                   />
                 </Col>
                 <Col xs={12}>
-                  Already have an account? Sign In
+                  <Link to="sign-in">  
+                    Already have an account? Sign In
+                  </Link>  
                 </Col>
               </Row>
             </div>

@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import SignInUpLayout from '../../layout/sign_in_up';
+import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
   render() {
@@ -30,7 +31,7 @@ class SignIn extends Component {
                 </Col>
                 <Col xs={12}>
                   <TextField
-                    type="password"  
+                    type="password"
                     name="password"
                     hintText="Your Password"
                     hintStyle={customInputStyles.forText}
@@ -39,18 +40,24 @@ class SignIn extends Component {
                 </Col>
                 <Col xs={12}>
                   <RaisedButton
-                    className="v-spacer"  
+                    className="v-spacer"
                     fullWidth={true}
                     label="Sign In"
                     primary={true}
                   />
                 </Col>
                 <Col xs={12}>
-                  Forgot Your Password?
+                  <Link to='#'>
+                    Forgot Your Password?
+                  </Link>
                 </Col>
               </Row>
             </div>
-            <div className="login-footer"></div>
+            <div className="login-footer">
+              <Link to="sign-up">
+                Don't have an account? Sign Up
+              </Link>
+            </div>
           </Col>
           <Col xs={12} sm={3} md={4} className="v-spacer"></Col>
         </Row>
