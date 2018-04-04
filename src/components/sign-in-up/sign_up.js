@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SignInUpLayout from '../../layout/sign_in_up';
 import { Link } from 'react-router-dom';
 
-class SignIn extends Component {
+class SignUp extends Component {
   render() {
     const customInputStyles = {
       forText: {
@@ -20,6 +20,15 @@ class SignIn extends Component {
           <Col xs={12} sm={6} md={4} className="v-spacer">
             <div className="login-body">
               <Row>
+              <Col xs={12}>
+                  <TextField
+                    name="full_name"
+                    hintText="Your Name"
+                    hintStyle={customInputStyles.forText}
+                    inputStyle={customInputStyles.forText}
+                    fullWidth={true}
+                  />
+                </Col>
                 <Col xs={12}>
                   <TextField
                     name="email"
@@ -31,33 +40,38 @@ class SignIn extends Component {
                 </Col>
                 <Col xs={12}>
                   <TextField
-                    type="password"
+                    type="password"  
                     name="password"
-                    hintText="Your Password"
+                    hintText="Enter a  Password"
+                    hintStyle={customInputStyles.forText}
+                    fullWidth={true}
+                  />
+                </Col>
+                <Col xs={12}>
+                  <TextField
+                    type="password"  
+                    name="confirm_password"
+                    hintText="Confirm Password"
                     hintStyle={customInputStyles.forText}
                     fullWidth={true}
                   />
                 </Col>
                 <Col xs={12}>
                   <RaisedButton
-                    className="v-spacer"
+                    className="v-spacer"  
                     fullWidth={true}
-                    label="Sign In"
+                    label="Sign Up"
                     primary={true}
                   />
                 </Col>
                 <Col xs={12}>
-                  <Link to='/forgot-password'>
-                    Forgot Your Password?
-                  </Link>
+                  <Link to="sign-in">  
+                    Already have an account? Sign In
+                  </Link>  
                 </Col>
               </Row>
             </div>
-            <div className="login-footer">
-              <Link to="sign-up">
-                Don't have an account? Sign Up
-              </Link>
-            </div>
+            <div className="login-footer"></div>
           </Col>
           <Col xs={12} sm={3} md={4} className="v-spacer"></Col>
         </Row>
@@ -66,4 +80,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignUp;
