@@ -30,25 +30,16 @@ class SignIn extends Component {
                   />
                 </Col>
                 <Col xs={12}>
-                  <TextField
-                    type="password"
-                    name="password"
-                    hintText="Your Password"
-                    hintStyle={customInputStyles.forText}
-                    fullWidth={true}
-                  />
-                </Col>
-                <Col xs={12}>
                   <RaisedButton
                     className="v-spacer"
                     fullWidth={true}
-                    label="Sign In"
+                    label="Reset Password"
                     primary={true}
                   />
                 </Col>
                 <Col xs={12}>
-                  <Link to='/forgot-password'>
-                    Forgot Your Password?
+                  <Link to='sign-in'>
+                    Sign In
                   </Link>
                 </Col>
               </Row>
