@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import SignIn from './components/sign-in-up/sign_in';
 import registerServiceWorker from './registerServiceWorker';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import GlobalRoutes from './routes';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <MuiThemeProvider>
+    <GlobalRoutes>
+      <SignIn />
+    </GlobalRoutes>  
+  </MuiThemeProvider>,
+  document.getElementById('root'));
 registerServiceWorker();
