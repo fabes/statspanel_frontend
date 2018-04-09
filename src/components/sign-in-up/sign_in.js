@@ -44,6 +44,7 @@ class SignIn extends Component {
                     fullWidth={true}
                     label="Sign In"
                     primary={true}
+                    onClick={this.sign_in()}
                   />
                 </Col>
                 <Col xs={12}>
