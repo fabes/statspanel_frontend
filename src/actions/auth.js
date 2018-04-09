@@ -1,5 +1,7 @@
+import { AUTH_CONSTANTS } from '../constants/auth';
+
 const perform_sign_in = (user_input) => ({
-  type: 'PERFORM_SIGN_IN',
+  type: AUTH_CONSTANTS.user_sign_in,
   user_input,  
 })
 
