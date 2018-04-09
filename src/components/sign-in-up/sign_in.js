@@ -6,6 +6,10 @@ import SignInUpLayout from '../../layout/sign_in_up';
 import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
+  sign_in = () => {
+    return true;
+  }
+  
   render() {
     const customInputStyles = {
       forText: {
