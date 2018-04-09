@@ -20,7 +20,7 @@ class SignUp extends Component {
           <Col xs={12} sm={6} md={4} className="v-spacer">
             <div className="login-body">
               <Row>
-              <Col xs={12}>
+                <Col xs={12}>
                   <TextField
                     name="full_name"
                     hintText="Your Name"
@@ -40,7 +40,7 @@ class SignUp extends Component {
                 </Col>
                 <Col xs={12}>
                   <TextField
-                    type="password"  
+                    type="password"
                     name="password"
                     hintText="Enter a  Password"
                     hintStyle={customInputStyles.forText}
@@ -49,7 +49,7 @@ class SignUp extends Component {
                 </Col>
                 <Col xs={12}>
                   <TextField
-                    type="password"  
+                    type="password"
                     name="confirm_password"
                     hintText="Confirm Password"
                     hintStyle={customInputStyles.forText}
@@ -58,16 +58,16 @@ class SignUp extends Component {
                 </Col>
                 <Col xs={12}>
                   <RaisedButton
-                    className="v-spacer"  
+                    className="v-spacer"
                     fullWidth={true}
                     label="Sign Up"
                     primary={true}
                   />
                 </Col>
                 <Col xs={12}>
-                  <Link to="sign-in">  
+                  <Link to="sign-in">
                     Already have an account? Sign In
-                  </Link>  
+                  </Link>
                 </Col>
               </Row>
             </div>
