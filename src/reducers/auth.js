@@ -8,8 +8,10 @@ const users = (state = initial_state, action) => {
   switch (action.type) {
     case AUTH_CONSTANTS.user_sign_in:
       return { ...state, current_user: action.data }
+    case AUTH_CONSTANTS.user_sign_up:
+      return { ...state, current_user: action.data }
     default:
-      return state;  
+      return state;
   }
 }
 

@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SignInUpLayout from '../../layout/sign_in_up';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux"
+import { bindActionCreators } from "redux";
 
 import { sign_in } from '../../actions/auth';
 
