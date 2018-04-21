@@ -52,7 +52,7 @@ export const sign_up = (user_input) => {
     fetch(app_config.base_api_url + 'users', post_data)
       .then(response => response.json())
       .then(data => {
-        if (data.status !== 'success') {
+        if (data.token) {
           history.push('/sign-in');
         }
       })
