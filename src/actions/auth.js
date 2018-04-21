@@ -4,7 +4,7 @@ import history from '../utils/history';
 
 const perform_sign_in = (user_input) => ({
   type: AUTH_CONSTANTS.user_sign_in,
-  user_input,
+  data: user_input,
 });
 
 // const perform_sign_up = (user_input) => ({
@@ -26,7 +26,7 @@ export const sign_in = (user_input) => {
     fetch(app_config.base_api_url + 'users/sign_in', post_data)
       .then(response => response.json())
       .then(data => {
-        if (data !== '') {
+        if (data.token !== '') {
           localStorage.setItem('auth_token', data.token);
           dispatch(perform_sign_in(data));
           history.push('/dashboard');
