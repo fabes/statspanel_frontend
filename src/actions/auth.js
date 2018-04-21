@@ -7,6 +7,11 @@ const perform_sign_in = (user_input) => ({
   data: user_input,
 });
 
+const check_valid_token = (token) => ({
+  type: AUTH_CONSTANTS.check_valid_token,
+  data: token,
+})
+
 // const perform_sign_up = (user_input) => ({
 //   type: AUTH_CONSTANTS.user_sign_up,
 //   user_input,  
@@ -29,6 +34,8 @@ export const sign_in = (user_input) => {
         if (data.token !== '') {
           localStorage.setItem('auth_token', data.token);
           dispatch(perform_sign_in(data));
+          dispatch(check_valid_token(true));
+
           history.push('/dashboard');
         }
       })
@@ -54,6 +61,31 @@ export const sign_up = (user_input) => {
       .then(data => {
         if (data.token) {
           history.push('/sign-in');
+        }
+      })
+      .catch(e => {
+        console.log('error =', e);
+      })
+  }
+}
+
+export const has_valid_token = () => {
+  return (dispatch, getState) => {
+    const token = localStorage.getItem('auth_token');
+
+    let header_data = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Auth-Token': token,
+      }
+    }
+
+    fetch(app_config.base_api_url + 'has-valid-token', header_data)
+      .then(response => response.json())
+      .then(data => {
+        if (data.has_valid_token) {
+          dispatch(check_valid_token(data.has_valid_token));
         }
       })
       .catch(e => {

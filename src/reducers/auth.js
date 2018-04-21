@@ -1,7 +1,8 @@
 import { AUTH_CONSTANTS } from '../constants/auth';
 
 const initial_state = {
-  current_user: {}
+  current_user: {},
+  valid_user_token: false,
 }
 
 const users = (state = initial_state, action) => {
@@ -10,6 +11,8 @@ const users = (state = initial_state, action) => {
       return { ...state, current_user: action.data }
     case AUTH_CONSTANTS.user_sign_up:
       return { ...state, current_user: action.data }
+    case AUTH_CONSTANTS.check_valid_token:
+      return { ...state, valid_user_token: action.data }
     default:
       return state;
   }

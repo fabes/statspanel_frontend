@@ -5,17 +5,19 @@ import '../assets/styles/global.css';
 import { has_valid_token } from '../actions/auth';
 import history from '../utils/history';
 
-class SignInUpLayout extends Component {
+class DashboardLayout extends Component {
   componentWillMount() {
     this.props.actions.has_valid_token();
-
-    if (this.props.valid_user_token === true) {
-      history.push('/dashboard');
+    if (this.props.valid_user_token === false) {
+      this.logout();
     }
-  }  
+  }
+  logout = () => {
+    history.push('/sign-in');
+  }
   render() {
     return (
-      <div className="container">
+      <div className="fluid-container">
         {this.props.children}
       </div>
     )
@@ -35,4 +37,4 @@ function mapDispatchToProps(dispatch) {
     }, dispatch)
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SignInUpLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardLayout);
