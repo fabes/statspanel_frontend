@@ -4,7 +4,7 @@ import DashboardLayout from '../../layout/dashboard';
 class Dashboard extends Component{
   render() {
     return (
-      <div>[WIP]</div>
+      <DashboardLayout>[WIP]</DashboardLayout>
     )
   }
 }
