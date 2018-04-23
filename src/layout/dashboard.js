@@ -7,6 +7,8 @@ import history from '../utils/history';
 import MenuIcon from 'mdi-react/MenuIcon';
 import Drawer from 'material-ui/Drawer';
 import { Row, Col } from 'react-bootstrap';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import AddIcon from 'mdi-react/AddIcon';
 
 class DashboardLayout extends Component {
   constructor(props) {
@@ -30,7 +32,23 @@ class DashboardLayout extends Component {
   }
 
   toggleDrawer = () => {
-    this.setState({drawer_open: !this.state.drawer_open})
+    this.setState({ drawer_open: !this.state.drawer_open })
+  }
+
+  render_floating_add_icon = () => {
+    const float_icon_styles = {
+      position: 'absolute',
+      bottom: '3%',
+      right: '5%',
+    }
+    return (
+      <FloatingActionButton
+        secondary={true}
+        style={float_icon_styles}
+      >
+        <AddIcon />
+      </FloatingActionButton>
+    )
   }
 
   render() {
@@ -40,11 +58,11 @@ class DashboardLayout extends Component {
           <MenuIcon className="menu-icon" onClick={this.toggleDrawer} />
         </div>
         <Drawer
-          containerClassName="dashboard-sidebar"  
+          containerClassName="dashboard-sidebar"
           docked={false}
           width={250}
           open={this.state.drawer_open}
-          onRequestChange={(drawer_open) => this.setState({drawer_open})}
+          onRequestChange={(drawer_open) => this.setState({ drawer_open })}
         >
           <Row>
             <Col xs={12}>
@@ -56,6 +74,7 @@ class DashboardLayout extends Component {
             </Col>
           </Row>
         </Drawer>
+        {this.render_floating_add_icon()}
         <div className="dashboard-content">
           {this.props.children}
         </div>
@@ -68,7 +87,7 @@ function mapStateToProps(state) {
   return {
     valid_user_token: state.users.valid_user_token,
     current_user: state.users.current_user,
-	}
+  }
 }
 
 function mapDispatchToProps(dispatch) {
