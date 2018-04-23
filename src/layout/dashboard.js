@@ -9,6 +9,8 @@ import Drawer from 'material-ui/Drawer';
 import { Row, Col } from 'react-bootstrap';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import AddIcon from 'mdi-react/AddIcon';
+import MenuItem from 'material-ui/MenuItem';
+import IconMenu from 'material-ui/IconMenu';
 
 class DashboardLayout extends Component {
   constructor(props) {
@@ -42,14 +44,26 @@ class DashboardLayout extends Component {
       right: '5%',
     }
     return (
-      <FloatingActionButton
-        secondary={true}
-        style={float_icon_styles}
-      >
-        <AddIcon />
-      </FloatingActionButton>
+      <span>
+        <IconMenu
+          style={float_icon_styles}
+          iconButtonElement={
+            <FloatingActionButton
+              secondary={true}
+            >
+              <AddIcon />
+            </FloatingActionButton>
+          }
+          anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
+          targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+        >
+          <MenuItem primaryText="Project" />
+          <MenuItem primaryText="Panel" />
+        </IconMenu>
+      </span>
     )
   }
+
 
   render() {
     return (
