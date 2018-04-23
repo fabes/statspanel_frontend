@@ -6,17 +6,20 @@ import { has_valid_token, set_invalid_token } from '../actions/auth';
 import history from '../utils/history';
 import MenuIcon from 'mdi-react/MenuIcon';
 import Drawer from 'material-ui/Drawer';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import AddIcon from 'mdi-react/AddIcon';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
+import Dialog from 'material-ui/Dialog';
 
 class DashboardLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drawer_open: false
+      drawer_open: false,
+      project_dialog_open: false,
+      panel_dialog_open: false,
     }
   }
 
@@ -64,13 +67,20 @@ class DashboardLayout extends Component {
           anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
           targetOrigin={{ horizontal: 'left', vertical: 'top' }}
         >
-          <MenuItem primaryText="Project" />
-          <MenuItem primaryText="Panel" />
+          <MenuItem primaryText="Project" onClick={this.handle_project_dialog} />
+          <MenuItem primaryText="Panel" onClick={this.handle_panel_dialog} />
         </IconMenu>
       </span>
     )
   }
 
+  handle_project_dialog = () => {
+    this.setState({project_dialog_open: !this.state.project_dialog_open})
+  }
+
+  handle_panel_dialog = () => {
+    this.setState({panel_dialog_open: !this.state.panel_dialog_open})
+  }
 
   render() {
     return (
@@ -96,9 +106,30 @@ class DashboardLayout extends Component {
           </Row>
         </Drawer>
         {this.render_floating_add_icon()}
+
         <div className="dashboard-content">
           {this.props.children}
         </div>
+
+        <Dialog
+          modal={true}
+          open={this.state.project_dialog_open}
+        >
+          Adding a project dialog.
+          <div>
+            <Button onClick={this.handle_project_dialog}>Close</Button>
+          </div>
+        </Dialog>
+
+        <Dialog
+          modal={true}
+          open={this.state.panel_dialog_open}
+        >
+          Adding a panel dialog.
+          <div>
+            <Button onClick={this.handle_panel_dialog}>Close</Button>
+          </div>
+        </Dialog>        
       </div>
     )
   }
