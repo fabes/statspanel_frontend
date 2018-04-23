@@ -43,3 +43,11 @@ body, html {
   margin-left: 2rem;
   color: #2def8f;
   cursor: pointer; }
+
+.floating-bottom--right {
+  right: 5%;
+  bottom: 3%;
+  position: absolute !important; }
+
+.floating-icon .menu {
+  background-color: red; }
