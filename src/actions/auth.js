@@ -12,6 +12,16 @@ const check_valid_token = (token) => ({
   data: token,
 })
 
+const make_invalid_token = () => ({
+  type: AUTH_CONSTANTS.set_invalid_token,
+  data: false,
+})
+
+const clear_current_user = () => ({
+  type: AUTH_CONSTANTS.reset_current_user,
+  data: {},
+})
+
 // const perform_sign_up = (user_input) => ({
 //   type: AUTH_CONSTANTS.user_sign_up,
 //   user_input,  
@@ -91,5 +101,12 @@ export const has_valid_token = () => {
       .catch(e => {
         console.log('error =', e);
       })
+  }
+}
+
+export const set_invalid_token = () => {
+  return (dispatch, getState) => {
+    dispatch(make_invalid_token(false));
+    dispatch(clear_current_user());
   }
 }

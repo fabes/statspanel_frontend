@@ -13,6 +13,11 @@ const users = (state = initial_state, action) => {
       return { ...state, current_user: action.data }
     case AUTH_CONSTANTS.check_valid_token:
       return { ...state, valid_user_token: action.data }
+    case AUTH_CONSTANTS.set_invalid_token:
+      return { ...state, valid_user_token: action.data }
+    case AUTH_CONSTANTS.reset_current_user:
+      return { ...state, current_user: action.data }
+
     default:
       return state;
   }
