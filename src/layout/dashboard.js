@@ -43,9 +43,16 @@ class DashboardLayout extends Component {
       bottom: '3%',
       right: '5%',
     }
+
+    const menu_styles = {
+      backgroundColor: '#f03e81',
+      color: 'rgba(255,255,255,1)',
+    }
+
     return (
       <span>
         <IconMenu
+          menuStyle={menu_styles}
           style={float_icon_styles}
           iconButtonElement={
             <FloatingActionButton

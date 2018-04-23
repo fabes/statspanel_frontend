@@ -48,3 +48,6 @@ body, html {
   right: 5%;
   bottom: 3%;
   position: absolute !important; }
+
+.floating-icon .menu {
+  background-color: red; }
