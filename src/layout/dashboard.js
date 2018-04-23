@@ -42,7 +42,7 @@ class DashboardLayout extends Component {
         <Drawer
           containerClassName="dashboard-sidebar"  
           docked={false}
-          width="20%"
+          width={250}
           open={this.state.drawer_open}
           onRequestChange={(drawer_open) => this.setState({drawer_open})}
         >
