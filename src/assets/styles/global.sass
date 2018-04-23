@@ -1,3 +1,6 @@
+$secondary-color: #345379
+$dashboard-default-padding: 1rem
+  
 body, html
   background-color: #161d27
   margin: 0
@@ -18,3 +21,33 @@ body, html
 
 .test
   color: #ff6600
+
+.dashboard
+  &-menu
+    &-bar
+      border-bottom: 1px solid $secondary-color
+      padding: $dashboard-default-padding
+      .menu-icon
+        fill: $secondary-color
+  &-sidebar
+    background-color: $secondary-color !important
+    padding: $dashboard-default-padding
+    color: #ffffff !important
+    font-weight: 300
+    &-user
+      &-image
+        width: 90px
+        height: 90px
+        background-color: #5f7da5
+        border-radius: 50%
+        margin: 3rem auto 1rem auto
+        border: 2px solid #77a8e6
+  &-content
+    padding: $dashboard-default-padding
+
+.logout-text-link
+  display: inline-block
+  margin-left: 2rem
+  color: #2def8f
+  cursor: pointer
+        
