@@ -51,3 +51,12 @@ body, html {
 
 .floating-icon .menu {
   background-color: red; }
+
+.dialog-btn {
+  font-size: 14px !important;
+  margin-right: 1rem; }
+  .dialog-btn--secondary {
+    color: #ffffff !important; }
+
+.dialog-footer {
+  margin-top: 5rem; }
