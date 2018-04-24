@@ -139,6 +139,14 @@ class DashboardLayout extends Component {
                     </li>
                   )
                 })}
+                {
+                  this.props.projects.list.length == 0
+                    ?
+                    <div className="list-link-cta" onClick={this.handle_project_dialog}>
+                      <AddIcon /> New Project
+                    </div>
+                    : null
+                }
               </ul>
             </Col>
           </Row>
@@ -154,7 +162,7 @@ class DashboardLayout extends Component {
           open={this.state.project_dialog_open}
         >
           <TextField
-            name="new_project_name"  
+            name="new_project_name"
             hintText="Project Name"
             floatingLabelText="Project Name"
             fullWidth={true}
