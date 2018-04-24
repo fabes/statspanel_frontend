@@ -73,7 +73,7 @@ class SignIn extends Component {
                     className="v-spacer"
                     fullWidth={true}
                     label="Sign In"
-                    primary={true}
+                    secondary={true}
                     onClick={this.perform_user_sign_in}
                   />
                 </Col>

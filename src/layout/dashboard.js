@@ -15,6 +15,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { has_valid_token, set_invalid_token } from '../actions/auth';
 import { fetch_projects_list, create_new_project } from '../actions/projects';
+import BookmarkIcon from 'mdi-react/BookmarkIcon';
 
 class DashboardLayout extends Component {
   constructor(props) {
@@ -124,6 +125,30 @@ class DashboardLayout extends Component {
                 <span onClick={this.logout} className="logout-text-link">Logout</span>
               </div>
             </Col>
+            <Col xs={12}>
+              <div className="dashboard-sidebar-section--header">
+                <BookmarkIcon /> Projects
+              </div>
+            </Col>
+            <Col xs={12}>
+              <ul>
+                {this.props.projects.list.map((project) => {
+                  return (
+                    <li key={project.code} className="list-link">
+                      {project.name}
+                    </li>
+                  )
+                })}
+                {
+                  this.props.projects.list.length == 0
+                    ?
+                    <div className="list-link-cta" onClick={this.handle_project_dialog}>
+                      <AddIcon /> New Project
+                    </div>
+                    : null
+                }
+              </ul>
+            </Col>
           </Row>
         </Drawer>
         {this.render_floating_add_icon()}
@@ -137,7 +162,7 @@ class DashboardLayout extends Component {
           open={this.state.project_dialog_open}
         >
           <TextField
-            name="new_project_name"  
+            name="new_project_name"
             hintText="Project Name"
             floatingLabelText="Project Name"
             fullWidth={true}
@@ -179,6 +204,7 @@ function mapStateToProps(state) {
   return {
     valid_user_token: state.users.valid_user_token,
     current_user: state.users.current_user,
+    projects: state.projects,
   }
 }
 
