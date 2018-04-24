@@ -31,7 +31,6 @@ class SignIn extends Component {
     e.preventDefault();
     const post_data = { ...this.state };
     this.props.actions.sign_in(post_data)
-    console.log('sign in clicked and with props', this.props);
     return true;
   }
   
