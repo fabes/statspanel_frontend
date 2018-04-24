@@ -12,6 +12,8 @@ import AddIcon from 'mdi-react/AddIcon';
 import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 class DashboardLayout extends Component {
   constructor(props) {
@@ -75,11 +77,11 @@ class DashboardLayout extends Component {
   }
 
   handle_project_dialog = () => {
-    this.setState({project_dialog_open: !this.state.project_dialog_open})
+    this.setState({ project_dialog_open: !this.state.project_dialog_open })
   }
 
   handle_panel_dialog = () => {
-    this.setState({panel_dialog_open: !this.state.panel_dialog_open})
+    this.setState({ panel_dialog_open: !this.state.panel_dialog_open })
   }
 
   render() {
@@ -115,9 +117,26 @@ class DashboardLayout extends Component {
           modal={true}
           open={this.state.project_dialog_open}
         >
-          Adding a project dialog.
-          <div>
-            <Button onClick={this.handle_project_dialog}>Close</Button>
+          <TextField
+            hintText="Project Name"
+            floatingLabelText="Project Name"
+            fullWidth={true}
+          />
+          <div className="dialog-footer">
+            <RaisedButton
+              className="dialog-btn dialog-btn--secondary"
+              secondary={true}
+              onClick={this.handle_project_dialog}
+              width={150}
+            >
+              Save Project
+            </RaisedButton>
+            <RaisedButton
+              className="dialog-btn"
+              onClick={this.handle_project_dialog}
+            >
+              Close
+            </RaisedButton>
           </div>
         </Dialog>
 
@@ -127,9 +146,9 @@ class DashboardLayout extends Component {
         >
           Adding a panel dialog.
           <div>
-            <Button onClick={this.handle_panel_dialog}>Close</Button>
+            <RaisedButton onClick={this.handle_panel_dialog}>Close</RaisedButton>
           </div>
-        </Dialog>        
+        </Dialog>
       </div>
     )
   }
