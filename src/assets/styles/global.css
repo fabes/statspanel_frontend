@@ -95,3 +95,6 @@ body, html {
       margin-top: -4px;
       fill: #ffffff;
       float: left; }
+
+.font-300 {
+  font-weight: 300; }

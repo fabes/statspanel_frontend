@@ -127,7 +127,21 @@ class DashboardLayout extends Component {
             </Col>
             <Col xs={12}>
               <div className="dashboard-sidebar-section--header">
-                <BookmarkIcon /> Projects
+                <Row>
+                  <Col xs={9}>
+                    <BookmarkIcon /> Projects
+                  </Col>
+                  <Col xs={3} className="text-right">
+                    {
+                      this.props.projects.list.length > 0
+                        ?
+                        <span onClick={this.handle_project_dialog} className="list-link font-300">
+                          Add
+                        </span>
+                        : null
+                    }
+                  </Col>
+                </Row>
               </div>
             </Col>
             <Col xs={12}>
