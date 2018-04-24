@@ -91,7 +91,7 @@ class SignUp extends Component {
                     className="v-spacer"
                     fullWidth={true}
                     label="Sign Up"
-                    primary={true}
+                    secondary={true}
                     onClick={this.sign_user_up}
                   />
                 </Col>
