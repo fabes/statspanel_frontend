@@ -20,7 +20,8 @@ body, html {
   border-bottom: 1px solid #345379;
   padding: 1rem; }
   .dashboard-menu-bar .menu-icon {
-    fill: #345379; }
+    fill: #345379;
+    cursor: pointer; }
 
 .dashboard-sidebar {
   background-color: #345379 !important;
