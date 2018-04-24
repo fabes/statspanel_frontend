@@ -140,7 +140,7 @@ class DashboardLayout extends Component {
                   )
                 })}
                 {
-                  this.props.projects.list.length == 0
+                  this.props.projects.list.length === 0
                     ?
                     <div className="list-link-cta" onClick={this.handle_project_dialog}>
                       <AddIcon /> New Project

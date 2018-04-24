@@ -22,23 +22,12 @@ const clear_current_user = () => ({
   data: {},
 })
 
-// const perform_sign_up = (user_input) => ({
-//   type: AUTH_CONSTANTS.user_sign_up,
-//   user_input,  
-// })
-
 export const sign_in = (user_input) => {
   return (dispatch, getState) => {
-    let post_data = {
-      method: 'POST',
-      body: JSON.stringify(user_input),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    }
+    const body_data = JSON.stringify(user_input);
+    let req_data = app_config.request_head('POST', body_data, getState());
 
-    fetch(app_config.base_api_url + 'users/sign_in', post_data)
+    fetch(app_config.base_api_url + 'users/sign_in', req_data)
       .then(response => response.json())
       .then(data => {
         if (data.token !== '') {
@@ -57,16 +46,10 @@ export const sign_in = (user_input) => {
 
 export const sign_up = (user_input) => {
   return (dispatch, getState) => {
-    let post_data = {
-      method: 'POST',
-      body: JSON.stringify(user_input),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    }
+    const body_data = JSON.stringify(user_input);
+    let req_data = app_config.request_head('POST', body_data, getState());
 
-    fetch(app_config.base_api_url + 'users', post_data)
+    fetch(app_config.base_api_url + 'users', req_data)
       .then(response => response.json())
       .then(data => {
         if (data.token) {
@@ -81,17 +64,9 @@ export const sign_up = (user_input) => {
 
 export const has_valid_token = () => {
   return (dispatch, getState) => {
-    const token = localStorage.getItem('auth_token');
+    let req_data = app_config.request_head('GET', {}, getState());
 
-    let header_data = {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Auth-Token': token,
-      }
-    }
-
-    fetch(app_config.base_api_url + 'has-valid-token', header_data)
+    fetch(app_config.base_api_url + 'has-valid-token', req_data)
       .then(response => response.json())
       .then(data => {
         if (data.has_valid_token) {
