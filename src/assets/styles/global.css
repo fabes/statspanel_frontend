@@ -2,7 +2,9 @@ body, html {
   background-color: #161d27;
   margin: 0;
   padding: 0;
-  color: #ffffff; }
+  color: #ffffff;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 14px; }
 
 .v-spacer {
   margin-bottom: 1.25rem;
@@ -98,3 +100,69 @@ body, html {
 
 .font-300 {
   font-weight: 300; }
+
+.panel-container {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap; }
+
+.panel-box {
+  width: 400px;
+  flex: 1;
+  min-height: 350px;
+  background-color: #262d37;
+  margin: 1rem;
+  color: #dddddd;
+  font-size: 12px;
+  border-bottom: 2px solid #ff4081; }
+  .panel-box--header {
+    border-bottom: 1px solid #343e4b;
+    padding: 1.25rem; }
+    .panel-box--header h2, .panel-box--header h3 {
+      padding: 0;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin: 0.5rem 0;
+      font-size: 12px; }
+    .panel-box--header h3 {
+      color: #5b646d;
+      text-transform: none; }
+    .panel-box--header .mdi-icon {
+      width: 16px;
+      height: 16px;
+      fill: #5a6779; }
+  .panel-box--label {
+    background-color: #008CBA;
+    text-transform: uppercase;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.5rem;
+    margin-top: 1.25rem; }
+  .panel-box--content {
+    padding: 2rem 1.25rem; }
+    .panel-box--content .target {
+      color: #0090ff;
+      font-size: 3rem;
+      font-weight: 600; }
+      .panel-box--content .target-reach {
+        font-size: 22px;
+        font-weight: 600; }
+      .panel-box--content .target-value--label {
+        color: #737373; }
+      .panel-box--content .target-potential-value {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1px;
+        font-size: 12px;
+        padding-left: 1.75rem; }
+  .panel-box--separator {
+    border-top: 1px solid #343e4b;
+    width: 100px;
+    margin: 2rem auto; }
+
+.up-trend {
+  fill: #a0ea0d;
+  margin-top: 14px;
+  float: left; }

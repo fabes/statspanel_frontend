@@ -1,12 +1,17 @@
 $secondary-color: #345379
 $dashboard-default-padding: 1rem
 $hot-pink-color: #ff4081
+$panel-box-paddding: 1.25rem
+$panel-box-font-size: 12px
+$panel-box-border-color: #343e4b
   
 body, html
   background-color: #161d27
   margin: 0
   padding: 0
   color: #ffffff
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+  font-size: 14px
 
 
 // Sign In/Up
@@ -113,3 +118,71 @@ body, html
   &-300
     font-weight: 300
 
+.panel
+  &-container
+    display: flex
+    display: -webkit-flex
+    flex-wrap: wrap
+  &-box
+    width: 400px
+    flex: 1
+    min-height: 350px
+    background-color: #262d37
+    margin: 1rem
+    color: #dddddd
+    font-size: $panel-box-font-size
+    border-bottom: 2px solid $hot-pink-color
+    &--header
+      border-bottom: 1px solid $panel-box-border-color
+      padding: $panel-box-paddding
+      h2, h3
+        padding: 0
+        margin: 0
+        text-transform: uppercase
+        font-weight: 300
+        letter-spacing: 1px
+        margin: 0.5rem 0
+        font-size: $panel-box-font-size
+      h3
+        color: #5b646d
+        text-transform: none
+      .mdi-icon
+        width: 16px
+        height: 16px
+        fill: #5a6779
+    &--label
+      background-color: #008CBA
+      text-transform: uppercase
+      color: #ffffff
+      display: inline-block
+      padding: 0.5rem
+      margin-top: 1.25rem
+    &--content
+      padding: 2rem $panel-box-paddding
+      .target
+        color: #0090ff
+        font-size: 3rem
+        font-weight: 600
+        &-reach
+          font-size: 22px
+          font-weight: 600
+        &-value
+          &--label
+            color: #737373
+        &-potential
+          &-value
+            text-transform: uppercase
+            font-weight: 300
+            letter-spacing: 1px
+            font-size: $panel-box-font-size
+            padding-left: 1.75rem
+    &--separator
+      border-top: 1px solid $panel-box-border-color
+      width: 100px
+      margin: 2rem auto
+
+.up
+  &-trend
+    fill: #a0ea0d
+    margin-top: 14px
+    float: left
